@@ -1,0 +1,36 @@
+[user]
+	name = lynn.feng
+	email = lynn.feng@dewav.com
+[commit]
+	template = /home/lynn.feng/.gitmessage
+[color]
+    log = auto
+	diff = auto 
+	status = auto 
+    branch = auto 
+	interactive = auto
+    ui = true
+
+[color "branch"]  
+    current = yellow reverse  
+    local = yellow   
+    remote = green
+
+[color "diff"]  
+    meta = yellow bold  
+    frag = magenta bold  
+    old = red bold  
+    new = green bold 
+
+[color "status"]  
+    added = green 
+    changed = yellow 
+    untracked = cyan
+
+[core]
+	editor = vi
+	excludesfile = /home/lynn.feng/.gitignore
+[merge]
+	tool = bcompare
+[alias]
+	co = checkout
