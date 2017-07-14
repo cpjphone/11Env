@@ -1,6 +1,0 @@
-*.[oa]    #忽略所有以.o或.a结尾的文件  
-*~    #忽略所有以波浪符(~)结尾的文件  
-!lib.a #lib.a 除外  
-/TODO #仅仅忽略项目根目录下的TODO文件，不包括subdir/TODO  
-build/    #忽略build/目录下的所有文件  
-doc/*.txt #会忽略doc/note.txt 但不包括doc/server/arch.txt  

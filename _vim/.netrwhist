@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/lynn.feng/project/220_lynn/sdc_2T'
-let g:netrw_dirhist_2='/home/lynn.feng/project/Git/MT6580_M/external/tinyalsa'
-let g:netrw_dirhist_3='/etc/sudoers.d'
-let g:netrw_dirhist_4='/home/lynn.feng/project/Pro/App_test/01.socket/server'
-let g:netrw_dirhist_5='/home/lynn.feng/project/Git/b7_tp/05)tp'
-let g:netrw_dirhist_6='/home/lynn.feng/project/220_lynn/sdb_4T/lynn/b3680/kernel-3.18/arch'
-let g:netrw_dirhist_7='/etc/xrdp'
