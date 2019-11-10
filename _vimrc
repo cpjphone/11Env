@@ -310,6 +310,81 @@ function! s:IsComment(str)
    " return [0,0] "空串处理
 endfunction
 "---------------end---------------"
+" -----------------------------------------------------------------------------
+"  对单行注释：CTRL＿a add by lynn ## 
+"  对多行注释： 先”V”，进入块选择模式。选择一段代码。CTRL_C
+"  同样，还原的命令和上面的一样。如对一行CTRL＿a后，把它注释了，再CTRL＿a后就还原了。
+" -----------------------------------------------------------------------------
+nmap <c-a>   <ESC>:Setcomment2<CR>
+imap <c-a>   <ESC>:Setcomment2<CR>
+vmap <c-a>   <ESC>:SetcommentV2<CR>
+"imap <c-a>   <ESC>:SetcommentV<CR>
+command! -nargs=0 Setcomment2 call s:SET_COMMENT2()
+command! -nargs=0 SetcommentV2 call s:SET_COMMENTV2()
+
+"非视图模式下所调用的函数
+function! s:SET_COMMENT2()
+let lindex=line(".")
+let str=getline(lindex)
+"查看当前是否为注释行
+let CommentMsg=s:IsComment2(str)
+call s:SET_COMMENTV_LINE2(lindex,CommentMsg[1],CommentMsg[0])
+endfunction
+
+"视图模式下所调用的函数
+function! s:SET_COMMENTV2()
+let lbeginindex=line("'<") "得到视图中的第一行的行数
+let lendindex=line("'>") "得到视图中的最后一行的行数
+
+
+"为各行设置
+let i=lbeginindex
+while i<=lendindex
+    let str=getline(i)
+    "查看当前是否为注释行
+    let CommentMsg=s:IsComment2(str)
+    call s:SET_COMMENTV_LINE2(i,CommentMsg[1],CommentMsg[0])
+    let i=i+1
+endwhile
+endfunction
+
+"设置注释
+"index:在第几行
+""pos:在第几列
+"comment_flag: 0:添加注释符 1:删除注释符
+function! s:SET_COMMENTV_LINE2(index,pos, comment_flag)
+let poscur = [0, 0,0, 0]
+let poscur[1]=a:index
+let poscur[2]=a:pos+1
+call setpos(".",poscur) "设置光标的位置
+
+if a:comment_flag==0
+    "插入 ##
+    exec "normal! i##"
+ else
+    ""删除##
+    exec "normal! xx"
+
+endif
+endfunction
+
+"查看当前是否为注释行并返回相关信息
+""str:一行代码
+function! s:IsComment2(str)
+    let ret= [0, 0] "第一项为是否为注释行（0,1）,第二项为要处理的列，
+    let i=0
+    let strlen=len(a:str)
+        if (a:str[0]=='#' && a:str[1]=='#')
+            let ret[0]=1
+        else
+            let ret[0]=0
+        endif
+
+        return ret
+ 
+        let i=i+1
+endfunction
+"---------------end---------------"
 
 
 set ignorecase                                        "搜索模式里忽略大小写
