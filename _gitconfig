@@ -1,8 +1,8 @@
 [user]
-	name = lynn.feng
-	email = lynn.feng@dewav.com
+	name = qiy 
+	email =
 [commit]
-	template = /home/lynn.feng/.gitmessage
+	template = /root/.gitmessage
 [color]
     log = auto
 	diff = auto 
@@ -29,7 +29,7 @@
 
 [core]
 	editor = vi
-	excludesfile = /home/lynn.feng/.gitignore
+	excludesfile = /root/
 [merge]
 	tool = bcompare
 [alias]
