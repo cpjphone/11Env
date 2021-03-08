@@ -11,6 +11,6 @@ root:~/Git/dlib/build# cmake --build . --config Release
 sudo make install
 sudo ldconfig
 cd .. 
-root:~/Git/dlib# sudo python setup.py install
+root:~/Git/dlib# sudo python3 setup.py install
 # numpy-python
 sudo apt-get install python-numpy
